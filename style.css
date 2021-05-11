@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'poppins',sans-serif;
+}
+body{
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+}
+.main{
+    position: relative;
+    overflow: hidden;
+}
+
+/*menu part*/
+.menu{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 60px;
+	padding: 0 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 100;
+}
+.menu #logo{
+	text-decoration: none;
+	font-size: 2.5em;
+	color: #212F3C;
+	font-family: 'Grand Hotel', cursive;
+}
+.menu ul{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	animation: anime_right 0.5s 1 linear;
+}
+.menu ul li{
+	list-style: none;
+}
+.menu ul li a{
+	padding: 10px;
+	margin-left: 20px;
+	text-decoration: none;
+	color: #212F3C;
+	border-radius: 10px;
+	transition: 0.5s;
+	font-weight: bold;
+}
+.menu ul li a:hover{
+	color: #fff;
+	background: #212F3C;
+}
+.menu ul li #active{
+	color: #fff;
+	background: #212F3C;
+}
+
+
+/*mid section*/
+.mid_section{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: url('./bg3.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.mid_section::before{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	z-index: 30;
+	background: linear-gradient(to top, #212F3C ,transparent);
+}
+
+/*moon*/
+#moon{
+	position: absolute;
+	top: 25%;
+	left: 0;
+	height: auto;
+	width: 120px;
+	opacity: 0.7;
+}
+#center_text{
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	opacity: 0;
+	color: #ECF0F1;
+	font-size: 4em;
+	transition: 0.5s;
+	letter-spacing: 5px;
+	text-transform: capitalize;
+    text-shadow: 2px 2px 4px #212F3C;
+	transform: translate(-50%,-45%);
+	font-family: 'Righteous', cursive;
+}
+
+
+/*bird*/
+.bird{
+	background: url("bird.gif");
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	width: 130px;
+	height: 100px;
+	opacity: 0.8;
+}
+.bird_section{
+	position: absolute;
+	right: 100%;
+	top: 30%;
+	will-change: transform;
+	z-index: 100;
+	animation: bird_moving 10s linear infinite;
+}
+.bird_3{
+	top: 40%;
+	animation-delay: -3s;
+}
+.bird_2{
+	top: 20%;
+	animation-delay: -2s;
+}
+
+
+.description{
+	position: relative;
+	z-index: 10;
+	color: #fff;
+	padding: 50px;
+	background: #212F3C;
+}
+.description p{
+	line-height: 1.5em;
+	font-size: 1.08em;
+}
+.description div{
+	margin-bottom: 1em;
+}
+.description div p{
+	width: 0%;
+	height: 10px;
+	border-radius: 20px;
+	background: linear-gradient(to right, #F06292,#2ECC71,#FFB74D);
+}
+.description h2{
+	font-size: 2.5em;
+	margin-bottom: 0.5em;
+	text-transform: capitalize;
+	letter-spacing: 4px;
+	font-family: 'Grand Hotel', cursive;
+}
+
+
+/*footer*/
+#footer{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 2em;
+}
+#footer ul{
+	display: flex;
+	align-items: center;
+}
+#footer ul li{
+	list-style: none;
+	padding: 5px;
+	font-size: 1.5em;
+	cursor: pointer;
+}
+#footer li:not(:first-child){
+	margin-left: 10px;
+}
+#footer #logo{
+	text-decoration: none;
+	font-size: 2.5em;
+	color: #ccc;
+	font-family: 'Grand Hotel', cursive;
+}
+#footer ul li:hover{
+	color: #F06292;
+}
+
+/*toggle btn*/
+#toggle_btn{
+	display: none;
+	border: none;
+	font-size: 1.5em;
+	transition: 0.5s;
+}
+.menu .active_menu{
+   display: block;
+   position: absolute;
+   bottom: -7em;
+   right: 3em;
+   padding: 10px;
+   align-items: flex-start;
+   flex-direction: column;
+   border-radius: 10px;
+   background: #212F3C; 
+}
+.menu .active_menu li a{
+	padding: 10px;
+	margin-left: 0px;
+	color: #fff;
+}
+.menu .active_menu li:not(:first-child){
+    margin-top: 10px;
+}
+.menu .active_menu #active{
+    background: none;
+}
+
+
+/*Responsive*/
+@media(max-width: 700px){
+	.description{
+		padding: 20px;
+	}
+	#center_text{
+		font-size: 3.5em;
+		color: #ddd;
+	}
+	#toggle_btn{
+	    display: block;
+	    color: #000;
+    }
+    .menu ul{
+    	display: none;
+    }
+    .bird{
+       	width: 110px;
+	    height: 80px;
+    }
+    #moon{
+    	width: 90px;
+    	top: 20%;
+    }
+}
+
+/*bird moving animation*/
+@keyframes bird_moving{
+	0%{
+		transform: scale(0.3);
+	}
+	50%{
+		transform: scale(0.6);
+	}
+	100%{
+		right: -100px;
+		transform: scale(0.3);
+	}
+}
+
+/*left moving animation*/
+@keyframes anime_right{
+	0%{
+		opacity: 0;
+		margin-right: 50px;
+	}
+	100%{
+		opacity: 1;
+		margin-right: 0px;
+	}
+}
+
+/*DevIdeas*/
+
